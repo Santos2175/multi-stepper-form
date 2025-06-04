@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MultiStepForm from './pages/MultiStepForm';
+import Home from './pages/Home';
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<MultiStepForm />} />
+          <Route path='/' element={<Home />} />
         </Routes>
       </Router>
     </>
