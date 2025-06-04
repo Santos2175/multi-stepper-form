@@ -4,6 +4,12 @@ import { RiTeamFill } from 'react-icons/ri';
 import { LuMilestone } from 'react-icons/lu';
 import { RiSpaceShipFill } from 'react-icons/ri';
 
+import Step1 from '@/components/form/step-components/step1/step1';
+import Step2 from '@/components/form/step-components/step2/step2';
+import Step3 from '@/components/form/step-components/step3/step3';
+import Step4 from '@/components/form/step-components/step4/Step4';
+import Step5 from '@/components/form/step-components/step5/step5';
+
 export const STEP_DATA = {
   step1: {
     purpose: 'Define the basic details of the project',
@@ -39,34 +45,59 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step1.subtext,
     icon: FaProjectDiagram,
     label: 'Project Overview',
-    content: 'Step 1',
+    content: ({ methods }) => (
+      <Step1
+        purpose={STEP_DATA.step1.purpose}
+        subtext={STEP_DATA.step1.subtext}
+      />
+    ),
   },
   {
     purpose: STEP_DATA.step2.purpose,
     subtext: STEP_DATA.step2.subtext,
     icon: RiTeamFill,
     label: 'Team & Roles',
-    content: 'Step 2',
+    content: ({ methods }) => (
+      <Step2
+        purpose={STEP_DATA.step2.purpose}
+        subtext={STEP_DATA.step2.subtext}
+      />
+    ),
   },
   {
     purpose: STEP_DATA.step3.purpose,
     subtext: STEP_DATA.step3.subtext,
     icon: LuMilestone,
     label: 'Tasks & Milestones',
-    content: 'Step 3',
+    content: ({}) => (
+      <Step3
+        purpose={STEP_DATA.step3.purpose}
+        subtext={STEP_DATA.step3.subtext}
+      />
+    ),
   },
   {
     purpose: STEP_DATA.step4.purpose,
     subtext: STEP_DATA.step4.subtext,
     icon: FaMoneyBillWave,
     label: 'Budget & Resources',
-    content: 'Step 4',
+    content: ({}) => (
+      <Step4
+        purpose={STEP_DATA.step4.purpose}
+        subtext={STEP_DATA.step4.subtext}
+      />
+    ),
   },
   {
     purpose: STEP_DATA.step5.purpose,
     subtext: STEP_DATA.step5.subtext,
     icon: RiSpaceShipFill,
     label: 'Review & Lunch',
-    content: 'Step 5',
+    content: ({}) => (
+      <Step5
+        purpose={STEP_DATA.step5.purpose}
+        subtext={STEP_DATA.step5.subtext}
+      />
+    ),
   },
 ];
