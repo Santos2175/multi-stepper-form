@@ -4,7 +4,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 
 import { useForm } from 'react-hook-form';
 import Stepper from '@/components/form/stepper/Stepper';
-import { STEPS } from '@/utils/data';
+import { STEPS } from '@/utils/steps-data';
 
 // Button Labels
 const BUTTON_LABELS = {
@@ -32,7 +32,7 @@ const Home = () => {
         <Stepper steps={STEPS} currentStep={currentStep} />
 
         {/* Steps */}
-        <div>Step</div>
+        <div className='mt-10 mx-28'>{STEPS[currentStep].content({})}</div>
 
         {/* Navigation buttons */}
         <div className='mx-28 mt-20 mb-8'>

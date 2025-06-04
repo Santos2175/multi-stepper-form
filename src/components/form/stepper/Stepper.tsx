@@ -9,7 +9,7 @@ type StepperProps = {
 
 const Stepper = ({ steps, currentStep }: StepperProps) => {
   return (
-    <div className='flex items-center justify-center p-7'>
+    <div className='flex items-center justify-center'>
       <div className='border rounded-lg flex items-center justify-center p-2'>
         {steps.map((step, index) => (
           <div
