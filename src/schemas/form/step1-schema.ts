@@ -39,7 +39,7 @@ const ProjectEndDateSchema = z.object({
 
 // project client name schema
 const ProjectClientNameSchema = z.object({
-  clientName: z.string().optional(),
+  clientName: z.string(),
 });
 
 export const stepOneSchema = z.object({

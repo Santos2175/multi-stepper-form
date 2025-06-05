@@ -1,10 +1,7 @@
-import {
-  stepOneSchema,
-  type StepOneFormData,
-} from '@/schemas/form/step1-schema';
+import { stepOneSchema } from '@/schemas/form/step1-schema';
 import type { Step } from '@/types/types';
 import { useState } from 'react';
-import { useForm, useFormContext } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -48,6 +45,7 @@ export function useMultiStepForm(steps: Step[]) {
 
   const {
     trigger,
+    getValues,
     formState: { errors },
   } = methods;
 
@@ -57,12 +55,16 @@ export function useMultiStepForm(steps: Step[]) {
 
   // Function to go to next step
   async function next() {
+    console.log('Form Data', allFormData);
     const sectionKeys = ['stepOne', 'stepTwo', 'stepThree', 'stepFour'];
     const section = sectionKeys[currentStep] as keyof CombinedFormData;
 
     const isStepValid = await trigger(section);
 
     if (isStepValid) {
+      const values = getValues();
+
+      setAllFormData((prev) => ({ ...prev, [section]: values[section] }));
       setCurrentStep((prev) => prev + 1);
     } else {
       console.log('Form errors', errors?.stepOne);
