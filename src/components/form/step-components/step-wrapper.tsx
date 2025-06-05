@@ -11,7 +11,7 @@ const StepWrapper = ({ purpose, subtext, children }: StepWrapperProps) => {
     <div>
       <h3 className='font-bold text-xl'>{purpose}</h3>
       <p className='text-sm text-gray-500'>{subtext}</p>
-      <div className='mb-10'>{children}</div>
+      <div>{children}</div>
     </div>
   );
 };

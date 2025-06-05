@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { useMultiStepForm } from '@/hooks/useMultiStepForm';
 import { FaArrowLeft } from 'react-icons/fa';
 
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import Stepper from '@/components/form/stepper/Stepper';
 import { STEPS } from '@/utils/steps-data';
 
@@ -13,7 +13,7 @@ const BUTTON_LABELS = {
   SUBMIT: 'Launch Project',
 };
 const Home = () => {
-  const { isFirstStep, back, next, isLastStep, currentStep } =
+  const { isFirstStep, back, next, isLastStep, currentStep, methods } =
     useMultiStepForm(STEPS);
 
   const { handleSubmit } = useForm();
@@ -32,7 +32,11 @@ const Home = () => {
         <Stepper steps={STEPS} currentStep={currentStep} />
 
         {/* Steps */}
-        <div className='mt-10 mx-28'>{STEPS[currentStep].content({})}</div>
+        <div className='mt-10 mx-28'>
+          <FormProvider {...methods}>
+            {STEPS[currentStep].content()}
+          </FormProvider>
+        </div>
 
         {/* Navigation buttons */}
         <div className='mx-28 mt-20 mb-8'>

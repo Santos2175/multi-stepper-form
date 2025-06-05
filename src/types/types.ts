@@ -9,5 +9,5 @@ export type Step = {
   subtext: string;
   icon: IconType;
   label: string;
-  content: ({ methods }: { methods: FormMethods }) => React.ReactNode;
+  content: () => React.ReactNode;
 };

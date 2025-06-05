@@ -13,11 +13,11 @@ const ProjectDescriptionSchema = z.object({
   description: z
     .string()
     .nonempty('Project description is required')
-    .min(135, 'Project description must be 135 characters or less'),
+    .max(135, 'Project description must be 135 characters or less'),
 });
 
 // Project category schema
-const ProjectCategorySchema = z.object({
+export const ProjectCategorySchema = z.object({
   category: z.enum([
     'Marketing',
     'Software Development',
@@ -42,7 +42,7 @@ const ProjectClientNameSchema = z.object({
   clientName: z.string().optional(),
 });
 
-const stepOneSchema = z.object({
+export const stepOneSchema = z.object({
   ...ProjectNameSchema.shape,
   ...ProjectDescriptionSchema.shape,
   ...ProjectCategorySchema.shape,

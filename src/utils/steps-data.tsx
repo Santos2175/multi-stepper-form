@@ -45,7 +45,7 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step1.subtext,
     icon: FaProjectDiagram,
     label: 'Project Overview',
-    content: ({ methods }) => (
+    content: () => (
       <Step1
         purpose={STEP_DATA.step1.purpose}
         subtext={STEP_DATA.step1.subtext}
@@ -57,7 +57,7 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step2.subtext,
     icon: RiTeamFill,
     label: 'Team & Roles',
-    content: ({ methods }) => (
+    content: () => (
       <Step2
         purpose={STEP_DATA.step2.purpose}
         subtext={STEP_DATA.step2.subtext}
@@ -69,7 +69,7 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step3.subtext,
     icon: LuMilestone,
     label: 'Tasks & Milestones',
-    content: ({}) => (
+    content: () => (
       <Step3
         purpose={STEP_DATA.step3.purpose}
         subtext={STEP_DATA.step3.subtext}
@@ -81,7 +81,7 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step4.subtext,
     icon: FaMoneyBillWave,
     label: 'Budget & Resources',
-    content: ({}) => (
+    content: () => (
       <Step4
         purpose={STEP_DATA.step4.purpose}
         subtext={STEP_DATA.step4.subtext}
@@ -93,7 +93,7 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step5.subtext,
     icon: RiSpaceShipFill,
     label: 'Review & Lunch',
-    content: ({}) => (
+    content: () => (
       <Step5
         purpose={STEP_DATA.step5.purpose}
         subtext={STEP_DATA.step5.subtext}
