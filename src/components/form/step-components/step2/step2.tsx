@@ -22,7 +22,7 @@ const Step2 = ({ purpose, subtext, users, setUsers }: Step2Props) => {
           setUsers={setUsers}
           methods={methods}
         />
-        <TeamLeader />
+        <TeamLeader users={users ?? []} setUsers={setUsers} />
       </div>
     </StepWrapper>
   );

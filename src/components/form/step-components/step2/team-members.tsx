@@ -1,6 +1,6 @@
 import { Label } from '@/components/ui/label';
 import type { StepTwoFormData, User } from '@/schemas/form/step2-schema';
-import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, type Dispatch, type SetStateAction } from 'react';
 import type { UseFormReturn } from 'react-hook-form';
 import { FaFlag, FaUser } from 'react-icons/fa';
 import { IoIosClose } from 'react-icons/io';
@@ -15,11 +15,19 @@ type TeamMemberProps = {
 
 const TeamMembers = ({ users, setUsers, methods }: TeamMemberProps) => {
   const {
+    setValue,
     formState: { errors },
   } = methods;
+
+  useEffect(() => {
+    if (setUsers) {
+      setValue('stepTwo.users', users, { shouldValidate: true });
+    }
+  }, [users, setUsers, setValue]);
+
   return (
     <div className='mb-6 mt-16'>
-      <Label className='textgray-600 mb-2'>Team Members</Label>
+      <Label className='text-gray-600 mb-2'>Team Members</Label>
 
       {/* Container for displaying list of members */}
       <div className='p-3 rounded-lg border flex flex-wrap gap-3'>
