@@ -9,6 +9,7 @@ import Step2 from '@/components/form/step-components/step2/step2';
 import Step3 from '@/components/form/step-components/step3/step3';
 import Step4 from '@/components/form/step-components/step4/Step4';
 import Step5 from '@/components/form/step-components/step5/step5';
+import type { User } from '@/schemas/form/step2-schema';
 
 export const STEP_DATA = {
   step1: {
@@ -57,10 +58,12 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step2.subtext,
     icon: RiTeamFill,
     label: 'Team & Roles',
-    content: () => (
+    content: ({ users, setUsers }) => (
       <Step2
         purpose={STEP_DATA.step2.purpose}
         subtext={STEP_DATA.step2.subtext}
+        users={users}
+        setUsers={setUsers}
       />
     ),
   },
@@ -100,4 +103,38 @@ export const STEPS: Step[] = [
       />
     ),
   },
+];
+
+// Step 2 data
+export const usersArray: User[] = [
+  {
+    id: '1',
+    name: 'Santosh Gurung',
+    email: 'santosh@example.com',
+    role: 'Owner',
+    isAdded: true,
+    isLeader: true,
+  },
+  {
+    id: '2',
+    name: 'Ramesh Shrestha',
+    email: 'ramesh@example.com',
+    role: 'Member',
+    isAdded: false,
+    isLeader: false,
+  },
+  {
+    id: '3',
+    name: 'Bibek Timalsina',
+    email: 'p@example.com',
+    role: 'Viewer',
+    isAdded: false,
+    isLeader: false,
+  },
+];
+
+export const rolesArray = [
+  { name: 'Owner', isChecked: false },
+  { name: 'Member', isChecked: false },
+  { name: 'Viewer', isChecked: false },
 ];

@@ -13,8 +13,16 @@ const BUTTON_LABELS = {
   SUBMIT: 'Launch Project',
 };
 const Home = () => {
-  const { isFirstStep, back, next, isLastStep, currentStep, methods } =
-    useMultiStepForm(STEPS);
+  const {
+    isFirstStep,
+    back,
+    next,
+    isLastStep,
+    currentStep,
+    methods,
+    users,
+    setUsers,
+  } = useMultiStepForm(STEPS);
 
   const { handleSubmit } = useForm();
 
@@ -34,7 +42,10 @@ const Home = () => {
         {/* Steps */}
         <div className='mt-10 mx-28'>
           <FormProvider {...methods}>
-            {STEPS[currentStep].content()}
+            {STEPS[currentStep].content({
+              users: currentStep === 1 ? users : undefined,
+              setUsers: currentStep === 1 ? setUsers : undefined,
+            })}
           </FormProvider>
         </div>
 
