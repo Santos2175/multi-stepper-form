@@ -20,7 +20,7 @@ const Stepper = ({ steps, currentStep }: StepperProps) => {
 
             {/* Step Label (Only show for active label) */}
             {currentStep === index && (
-              <StepLabel label={step.label} stepNumber={currentStep} />
+              <StepLabel label={step.label} stepNumber={currentStep + 1} />
             )}
           </div>
         ))}

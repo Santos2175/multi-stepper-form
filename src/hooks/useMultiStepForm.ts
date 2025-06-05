@@ -7,11 +7,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { stepTwoSchema, type User } from '@/schemas/form/step2-schema';
 import { TASK_DATA, usersArray } from '@/utils/steps-data';
 import { stepThreeSchema, type Task } from '@/schemas/form/step3-schema';
+import { stepFourSchema } from '@/schemas/form/step4-schema';
 
 export const combinedSchema = z.object({
   stepOne: stepOneSchema,
   stepTwo: stepTwoSchema,
   stepThree: stepThreeSchema,
+  stepFour: stepFourSchema,
 });
 
 export type CombinedFormData = z.infer<typeof combinedSchema>;
