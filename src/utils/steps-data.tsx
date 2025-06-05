@@ -101,10 +101,11 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step5.subtext,
     icon: RiSpaceShipFill,
     label: 'Review & Lunch',
-    content: () => (
+    content: ({ combinedFormData }) => (
       <Step5
         purpose={STEP_DATA.step5.purpose}
         subtext={STEP_DATA.step5.subtext}
+        combinedFormData={combinedFormData}
       />
     ),
   },

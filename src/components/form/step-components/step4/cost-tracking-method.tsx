@@ -36,8 +36,8 @@ const CostTrackingMethod = ({ methods }: CostTrackingMethodProps) => {
               <SelectItem value='fixed-budget' className='h-11'>
                 Fixed Budget
               </SelectItem>
-              <SelectItem value='hourly-budget' className='h-11'>
-                Hourly Budget
+              <SelectItem value='hourly-billing' className='h-11'>
+                Hourly Billing
               </SelectItem>
             </SelectContent>
           </Select>

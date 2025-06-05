@@ -28,10 +28,10 @@ const initialFormData = {
     clientName: '',
   },
   stepTwo: {
-    users: [],
+    users: usersArray,
   },
   stepThree: {
-    tasks: [],
+    tasks: TASK_DATA,
   },
   stepFour: {
     costTrackingMethod: 'fixed-budget',
@@ -55,6 +55,7 @@ export function useMultiStepForm(steps: Step[]) {
   const {
     trigger,
     getValues,
+    reset,
     formState: { errors },
   } = methods;
 
@@ -64,7 +65,6 @@ export function useMultiStepForm(steps: Step[]) {
 
   // Function to go to next step
   async function next() {
-    console.log('Form Data', allFormData);
     const sectionKeys = ['stepOne', 'stepTwo', 'stepThree', 'stepFour'];
     const section = sectionKeys[currentStep] as keyof CombinedFormData;
 
@@ -74,6 +74,19 @@ export function useMultiStepForm(steps: Step[]) {
       const values = getValues();
 
       setAllFormData((prev) => ({ ...prev, [section]: values[section] }));
+
+      if (isLastStep) {
+        console.log('✅ Final Submission Data:', values);
+
+        // Reset the form state and all steps
+        reset(initialFormData as CombinedFormData);
+        setUsers(usersArray);
+        setTasks(TASK_DATA);
+        setAllFormData(initialFormData);
+        setCurrentStep(0);
+
+        return;
+      }
       setCurrentStep((prev) => prev + 1);
     } else {
       console.log('Form errors', errors?.stepOne);
