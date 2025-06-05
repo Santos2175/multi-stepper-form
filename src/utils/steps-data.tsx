@@ -75,10 +75,12 @@ export const STEPS: Step[] = [
     subtext: STEP_DATA.step3.subtext,
     icon: LuMilestone,
     label: 'Tasks & Milestones',
-    content: () => (
+    content: ({ tasks, setTasks }) => (
       <Step3
         purpose={STEP_DATA.step3.purpose}
         subtext={STEP_DATA.step3.subtext}
+        tasks={tasks}
+        setTasks={setTasks}
       />
     ),
   },
