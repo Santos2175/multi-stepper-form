@@ -1,15 +1,18 @@
 import type { Step } from '@/types/types';
+import type { User } from '@/schemas/form/step2-schema';
+import type { Task } from '@/schemas/form/step3-schema';
+
 import { FaProjectDiagram, FaMoneyBillWave } from 'react-icons/fa';
 import { RiTeamFill } from 'react-icons/ri';
 import { LuMilestone } from 'react-icons/lu';
 import { RiSpaceShipFill } from 'react-icons/ri';
+import { FaPaintBrush, FaCode, FaCheckCircle, FaRocket } from 'react-icons/fa';
 
 import Step1 from '@/components/form/step-components/step1/step1';
 import Step2 from '@/components/form/step-components/step2/step2';
 import Step3 from '@/components/form/step-components/step3/step3';
 import Step4 from '@/components/form/step-components/step4/Step4';
 import Step5 from '@/components/form/step-components/step5/step5';
-import type { User } from '@/schemas/form/step2-schema';
 
 export const STEP_DATA = {
   step1: {
@@ -137,4 +140,48 @@ export const rolesArray = [
   { name: 'Owner', isChecked: false },
   { name: 'Member', isChecked: false },
   { name: 'Viewer', isChecked: false },
+];
+
+// Tasks data
+export const TASK_DATA: Task[] = [
+  {
+    id: '1',
+    title: 'Design Homepage',
+    description: 'Create the layout and design for the homepage.',
+    dueDate: new Date('2023-12-15'),
+    status: 'Completed',
+    priority: 'High',
+    isAdded: false,
+    icon: FaPaintBrush,
+  },
+  {
+    id: '2',
+    title: 'Develop API Endpoints',
+    description: 'Build RESTful API endpoints for the backend.',
+    dueDate: new Date('2023-12-15'),
+    status: 'Not Started',
+    priority: 'Medium',
+    isAdded: false,
+    icon: FaCode,
+  },
+  {
+    id: '3',
+    title: 'Write Unit Tests',
+    description: 'Write unit tests for the core functionality.',
+    dueDate: new Date('2023-12-18'),
+    status: 'In Progress',
+    priority: 'High',
+    isAdded: false,
+    icon: FaCheckCircle,
+  },
+  {
+    id: '4',
+    title: 'Deploy to Production',
+    description: 'Deploy the application to the production server.',
+    dueDate: new Date('2023-12-22'),
+    status: 'Not Started',
+    priority: 'Medium',
+    isAdded: false,
+    icon: FaRocket,
+  },
 ];

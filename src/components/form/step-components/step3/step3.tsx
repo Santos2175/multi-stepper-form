@@ -8,7 +8,7 @@ type Step3Props = {
 const Step3 = ({ purpose, subtext }: Step3Props) => {
   return (
     <StepWrapper purpose={purpose} subtext={subtext}>
-      step1
+      step3
     </StepWrapper>
   );
 };

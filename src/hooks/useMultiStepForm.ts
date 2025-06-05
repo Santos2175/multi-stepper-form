@@ -5,11 +5,13 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { stepTwoSchema, type User } from '@/schemas/form/step2-schema';
-import { usersArray } from '@/utils/steps-data';
+import { TASK_DATA, usersArray } from '@/utils/steps-data';
+import { stepThreeSchema, type Task } from '@/schemas/form/step3-schema';
 
 export const combinedSchema = z.object({
   stepOne: stepOneSchema,
   stepTwo: stepTwoSchema,
+  stepThree: stepThreeSchema,
 });
 
 export type CombinedFormData = z.infer<typeof combinedSchema>;
@@ -39,6 +41,7 @@ const initialFormData = {
 export function useMultiStepForm(steps: Step[]) {
   const [currentStep, setCurrentStep] = useState(0);
   const [users, setUsers] = useState<User[]>(usersArray);
+  const [tasks, setTasks] = useState<Task[]>(TASK_DATA);
   const [allFormData, setAllFormData] = useState(initialFormData);
 
   const methods = useForm<CombinedFormData>({
@@ -98,5 +101,7 @@ export function useMultiStepForm(steps: Step[]) {
     allFormData,
     users,
     setUsers,
+    tasks,
+    setTasks,
   };
 }

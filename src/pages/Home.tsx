@@ -22,6 +22,8 @@ const Home = () => {
     methods,
     users,
     setUsers,
+    tasks,
+    setTasks,
   } = useMultiStepForm(STEPS);
 
   const { handleSubmit } = useForm();
@@ -45,6 +47,8 @@ const Home = () => {
             {STEPS[currentStep].content({
               users: currentStep === 1 ? users : undefined,
               setUsers: currentStep === 1 ? setUsers : undefined,
+              tasks: currentStep === 2 ? tasks : undefined,
+              setTasks: currentStep === 2 ? setTasks : undefined,
             })}
           </FormProvider>
         </div>
