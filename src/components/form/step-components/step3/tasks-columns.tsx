@@ -79,6 +79,7 @@ export const TasksColumn: ColumnDef<Task>[] = [
     ),
     enableSorting: false,
     enableHiding: false,
+    meta: { showOnSmallScreen: true },
   },
   {
     accessorKey: 'title',
@@ -97,6 +98,7 @@ export const TasksColumn: ColumnDef<Task>[] = [
         </div>
       );
     },
+    meta: { showOnSmallScreen: true },
   },
   {
     accessorKey: 'description',
@@ -104,6 +106,7 @@ export const TasksColumn: ColumnDef<Task>[] = [
     cell: ({ row }) => (
       <span className='text-gray-600'>{row.original.description}</span>
     ),
+    meta: { showOnSmallScreen: false },
   },
   {
     accessorKey: 'dueDate',
@@ -114,6 +117,7 @@ export const TasksColumn: ColumnDef<Task>[] = [
 
       return formattedDate;
     },
+    meta: { showOnSmallScreen: false },
   },
   {
     accessorKey: 'status',
@@ -133,6 +137,7 @@ export const TasksColumn: ColumnDef<Task>[] = [
         </div>
       );
     },
+    meta: { showOnSmallScreen: false },
   },
   {
     accessorKey: 'priority',
@@ -152,5 +157,6 @@ export const TasksColumn: ColumnDef<Task>[] = [
         </div>
       );
     },
+    meta: { showOnSmallScreen: false },
   },
 ];

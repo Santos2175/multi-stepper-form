@@ -1,3 +1,5 @@
+import '@tanstack/react-table';
+
 import type { IconType } from 'react-icons/lib';
 import type { UseFormReturn } from 'react-hook-form';
 import type { StepOneFormData } from '@/schemas/form/step1-schema';
@@ -27,3 +29,10 @@ export type Step = {
     combinedFormData?: CombinedFormData;
   }) => React.ReactNode;
 };
+
+// For react table
+declare module '@tanstack/react-table' {
+  interface ColumnMeta<TData extends unknown, TValue> {
+    showOnSmallScreen?: boolean;
+  }
+}

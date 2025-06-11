@@ -26,7 +26,9 @@ const PopOverTeamLeader = ({ users, setUsers }: PopOverTeamLeaderProps) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant={'secondary'} className='text-sm'>
+        <Button
+          variant={'secondary'}
+          className='text-sm border border-gray-200 shadow-md'>
           <FaPlus size={12} className='text-[10px] text-gray-600' />
           <span>Add Leader</span>
         </Button>

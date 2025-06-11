@@ -8,6 +8,7 @@ import { stepTwoSchema, type User } from '@/schemas/form/step2-schema';
 import { TASK_DATA, usersArray } from '@/utils/steps-data';
 import { stepThreeSchema, type Task } from '@/schemas/form/step3-schema';
 import { stepFourSchema } from '@/schemas/form/step4-schema';
+import toast from 'react-hot-toast';
 
 export const combinedSchema = z.object({
   stepOne: stepOneSchema,
@@ -76,6 +77,7 @@ export function useMultiStepForm(steps: Step[]) {
       setAllFormData((prev) => ({ ...prev, [section]: values[section] }));
 
       if (isLastStep) {
+        toast.success('Form submitted successfylly.');
         console.log('✅ Final Submission Data:', values);
 
         // Reset the form state and all steps

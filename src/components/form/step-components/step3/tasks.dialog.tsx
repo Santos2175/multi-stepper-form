@@ -30,7 +30,9 @@ const TasksDialog = ({ table, onAddTask, openState }: TasksDialogProps) => {
   return (
     <Dialog open={openState.isOpen} onOpenChange={openState.setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant={'secondary'} className='text-sm mt-4'>
+        <Button
+          variant={'secondary'}
+          className='text-sm mt-4 border border-gray-200 shadow-md'>
           <span>{TEXTS.TEXT_BUTTON}</span>
         </Button>
       </DialogTrigger>

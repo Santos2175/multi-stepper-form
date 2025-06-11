@@ -22,8 +22,14 @@ const TasksTable = ({ table }: { table: ReactTable<Task> }) => {
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
+                  const showOnSmallScreen =
+                    header.column.columnDef.meta?.showOnSmallScreen;
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className={
+                        !showOnSmallScreen ? 'hidden md:table-cell' : ''
+                      }>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -42,14 +48,22 @@ const TasksTable = ({ table }: { table: ReactTable<Task> }) => {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell) => {
+                    const showOnSmallScreen =
+                      cell.column.columnDef.meta?.showOnSmallScreen;
+                    return (
+                      <TableCell
+                        key={cell.id}
+                        className={
+                          !showOnSmallScreen ? 'hidden md:table-cell' : ''
+                        }>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
             ) : (

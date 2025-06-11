@@ -34,12 +34,14 @@ const MemberDialog = ({ users, setUsers }: MemberDialogProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant={'secondary'} className='text-sm mt-4 cursor-pointer'>
+        <Button
+          variant={'secondary'}
+          className='text-sm mt-4 cursor-pointer border border-gray-200 shadow-md'>
           <FaPlus size={12} className='text-[10px] text-gray-600' />
           <span>Add Member</span>
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className='min-w-68 p-2 md:p-4 mx-auto'>
         <DialogHeader>
           <DialogTitle className='text-[22px]'>Manage Team Members</DialogTitle>
           <DialogDescription>

@@ -10,11 +10,10 @@ type TeamLeaderProps = {
 };
 
 const TeamLeader = ({ users, setUsers }: TeamLeaderProps) => {
-  console.log(users);
   const teamLeader = users.find((user) => user.isLeader);
 
   return (
-    <div className='mt-[66px] w-1/2'>
+    <div className='mt-[66px] w-full  md:w-1/2'>
       <div className='flex flex-col'>
         <Label className='text-gray-600'>Team Leader</Label>
         <span className='text-[13px] mt-1 text-gray-400'>
@@ -22,7 +21,7 @@ const TeamLeader = ({ users, setUsers }: TeamLeaderProps) => {
         </span>
       </div>
 
-      <div className='border p-3 w-full rounded-lg mt-4 flex justify-between items-center'>
+      <div className='border p-3 w-full  rounded-lg mt-4 flex gap-2 flex-wrap md:flex-nowrap   justify-between items-center'>
         <div>
           {teamLeader ? (
             <SingleUser user={teamLeader} />
@@ -44,7 +43,7 @@ export default TeamLeader;
 
 function SingleUser({ user }: { user: User }) {
   return (
-    <div className='p-2 border rounded-lg px-7 flex items-center gap-2 select-none relative'>
+    <div className='p-2 border rounded-lg md:mx-4 md:px-7 flex items-center gap-2 select-none relative'>
       {/* User icon */}
       <span className='size-8 bg-primary/15 rounded-full flex items-center justify-center'>
         <FaUser className='text-primary/45 text-sm' />
