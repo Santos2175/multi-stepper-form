@@ -1,54 +1,172 @@
-# React + TypeScript + Vite
+# Multi Step Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+- [Features](#features)
+- [Form Steps](#form-steps)
+  - [Project Overview](#1-project-overview)
+  - [Team & Roles](#2-team--roles)
+  - [Tasks & Milestones](#3-tasks--milestones)
+  - [Budget & Resources](#4-budget--resources)
+  - [Review & Launch](#5-review--launch)
+- [Tech Stack](#tech-stack)
+- [Getting Started](getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Docker Support](#docker-support)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+# Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+A modern, responsive multi-step form application built with React, TypeScript, and Vite. This project implements a sophisticated form wizard that guides users through a project creation process with multiple steps.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Features
+
+- **Multi-step Form Wizard**: A 5-step form process for project creation
+- **Modern UI/UX**: Built with Tailwind CSS and shadcn
+- **Type Safety**: Full TypeScript implementation
+- **Form Validation**: Powered by React Hook Form and Zod
+- **Responsive Design**: Mobile-first approach with responsive layouts
+- **Interactive Components**: Rich UI components including dropdowns, checkboxes, and date pickers
+- **State Management**: Efficient form state management across steps
+
+---
+
+## Form Steps
+
+1. **Project Overview**
+
+   - Define basic project details
+   - Project name, description, types, dates and client
+
+2. **Team & Roles**
+
+   - Assign team members
+   - Assign leader
+
+3. **Tasks & Milestones**
+
+   - Create and manage project tasks
+   - Set priorities and deadlines
+   - Track task status
+
+4. **Budget & Resources**
+
+   - Plan project finances
+   - Allocate resources
+   - Set budget constraints
+
+5. **Review & Launch**
+   - Final review of all entered information
+   - Project launch confirmation
+
+---
+
+## Tech Stack
+
+- **Frontend Framework**: React 18
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**:
+  - Radix UI
+  - Custom components
+- **Form Management**:
+  - React Hook Form
+  - Zod for validation
+- **Icons**:
+  - Lucide React
+  - React Icons
+- **Date Handling**: date-fns
+- **Routing**: React Router DOM
+- **Notifications**: React Hot Toast
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Santos2175/multi-stepper-form.git
+   cd multi-stepper-form
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
+
+---
+
+## Project Structure
+
+```
+src/
+├── assets/         # Static assets
+├── components/     # Reusable components
+│   ├── form/      # Form-specific components
+│   └── ui/        # UI components
+├── hooks/         # Custom React hooks
+├── lib/           # Utility libraries
+├── pages/         # Page components
+├── schemas/       # Zod validation schemas
+├── types/         # TypeScript type definitions
+└── utils/         # Utility functions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Docker Support
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+The project includes Docker configuration for containerization:
+
+- `Dockerfile` for building the application
+- `.dockerignore` for excluding unnecessary files
+
+---
+
+## Authors
+
+- Santosh Gurung - Initial work
+
+---
+
+## Acknowledgments
+
+- Thanks to all the open-source libraries and tools used in this project
+- Special thanks to the React and Vite communities
+
+---
